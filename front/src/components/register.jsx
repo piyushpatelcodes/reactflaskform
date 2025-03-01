@@ -32,16 +32,16 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = new FormData();
-    Object.entries(formData).forEach(([key, value]) => data.append(key, value));
-
     try {
-      await axios.post(`${API_BASE_URL}/submit`, data);
+      await axios.post(`${API_BASE_URL}/register`, formData, {
+        headers: { "Content-Type": "application/json" },
+      });
       alert("🎯 Registration Successful!");
     } catch (error) {
-      alert("❌ Something went wrong!");
+      alert("❌ Something went wrong!", error);
     }
   };
+  
 
   return (
     <div className="max-w-3xl text-black mx-auto p-10 bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl shadow-2xl mt-10">

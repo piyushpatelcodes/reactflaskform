@@ -1,14 +1,17 @@
-import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Register from "./components/register"
+import Form from "./components/register";
+import Users from "./components/user";
 
-function App() {
- 
+const App = () => {
   return (
-    <>
-       <Register />
-    </>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/register" element={<Form />} />
+        <Route path="/users" element={<Users />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
